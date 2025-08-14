@@ -1,17 +1,21 @@
 package dev.miguel;
 
-/**
- * Hello world!
- */
-public final class App {
-    private App() {
-    }
+import dev.miguel.controllers.EntryController;
+import dev.miguel.db.DiaryDatabase;
+import dev.miguel.repositories.EntryRepository;
+import dev.miguel.views.HomeView;
 
-    /**
-     * Says hello to the world.
-     * @param args The arguments of the program.
-     */
+public class App {
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        // Crear base de datos en memoria
+        DiaryDatabase database = new DiaryDatabase();
+
+        // Crear repositorio y controlador
+        EntryRepository repository = new EntryRepository(database);
+        EntryController controller = new EntryController(repository);
+
+        // Mostrar el menú principal
+        HomeView homeView = new HomeView(controller);
+        homeView.render();
     }
 }
