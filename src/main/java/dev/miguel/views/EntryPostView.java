@@ -28,6 +28,7 @@ public class EntryPostView extends View {
 
         controller.addEntry(title, date, description, emotion);
 
-        System.out.println("Momento vivido añadido correctamente!");
+        System.out.println("Momento vivido añadido correctamente.\n");
+        // Aquí termina, y el control regresa a HomeView
     }
 }
